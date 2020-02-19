@@ -10,11 +10,11 @@
   height: 100vh;
   width: 300px;
   background-color: #253141;
-  color: #ffffff;
+  color: $side-bar-font-color;
   font-weight: bold;
   &__side-header {
-    height: 100px;
-    padding: 0 20px;
+    height: $header-height;
+    padding: $side-bar-padding;
     display: flex;
     align-items: center;
     &__box {
@@ -30,7 +30,7 @@
         margin-left: 5px;
         }
         &__icon {
-        color: #fff;
+        color: $side-bar-font-color;
         text-decoration: none;
         }
       }
@@ -39,7 +39,7 @@
   &__groups-list {
     height: calc(100vh - 100px);
     background-color: #2f3e51;
-    padding: 0 20px;
+    padding: $side-bar-padding;
     &__group {
       padding: 20px 0 40px;
       &__group-name {
@@ -56,21 +56,21 @@
 .main-chat {
   height: 100vh;
   width: calc(100vw - 300px);
-  background-color: #ffffff;
+  background-color: $main-chat-background-color;
   &__main-header {
-    height: 100px;
-    padding: 0 40px;
+    height: $header-height;
+    padding: $main-chat-padding;
     display: flex;
     justify-content: space-between;
     &__detail {
       &__group-name {
-        color: #333333;
+        color: $main-chat-name-font-color;
         font-size: 20px;
         margin: 35px 0 15px;
       }
       &__group-members {
-        color: #999999;
-        font-size: 12px;
+        color: $main-chat-info-font-color;
+        font-size: $main-chat-info-font-size;
       }
     }
     &__edit-btn {
@@ -81,9 +81,9 @@
       display: block;
       line-height: 40px;
       text-decoration: none;
-      color: #38aef0;
-      font-size: 16px;
-      border: solid 1px #38aef0;
+      color: $edit-btn-color;
+      font-size: $btn-font-size;
+      border: solid 1px $edit-btn-color;
       text-align: center;
     }
   }
@@ -97,14 +97,14 @@
         display: flex;
         margin-bottom: 12px;
         &__post-name {
-          color: #333333;
+          color: $main-chat-name-font-color;
           font-size: 16px;
           font-weight: bold;
           margin-right: 10px;
         }
         &__post-time {
-          color: #999999;
-          font-size: 12px;
+          color: $main-chat-info-font-color;
+          font-size: $main-chat-info-font-size;
         }
       }
       &__post-message {
@@ -116,13 +116,13 @@
   &__message-form {
     height: 90px;
     background-color: #d2d2d2;
-    padding: 0 40px;
+    padding: $main-chat-padding;
     display: flex;;
     align-items: center;
     &__input-box {
-      height: 50px;
+      height: $form-input-height;
       width: 100%;
-      background-color: #fff;
+      background-color: $main-chat-background-color;
       display: flex;
       position: relative;
       align-items: center;
@@ -143,12 +143,12 @@
     }
     &__send-btn {
       width: 100px;
-      height: 50px;
+      height: $form-input-height;
       padding: 0 30px;
       margin-left: 15px;
       background-color: #38aef0;
-      font-size: 16px;
-      color: #fff;
+      font-size: $btn-font-size;
+      color: $main-chat-background-color;
     }
   }
 }
