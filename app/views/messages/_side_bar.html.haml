@@ -2,13 +2,13 @@
   .side-bar__side-header
     .side-bar__side-header__box
       .side-bar__side-header__box__user-name
-        teshita
+        = current_user.name
       %ul.side-bar__side-header__box__menu
         %li
           = link_to "#" do
             = icon('far', 'edit', class: "side-bar__side-header__box__menu__icon")
         %li
-          = link_to "#" do
+          = link_to edit_user_path(current_user.id) do
             = icon('fas', 'cog', class: "side-bar__side-header__box__menu__icon")
   .side-bar__groups-list
     .side-bar__groups-list__group
