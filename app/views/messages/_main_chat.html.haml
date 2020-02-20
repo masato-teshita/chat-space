@@ -2,10 +2,10 @@
   .main-chat__main-header
     .main-chat__main-header__detail
       .main-chat__main-header__detail__group-name
-        TECH::EXPERT 
+        'current_group.name'
       .main-chat__main-header__detail__group-members
         Member: teshita, riho 
-    = link_to '#', class: 'main-chat__main-header__edit-btn' do
+    = link_to edit_group_path(group.id), class: 'main-chat__main-header__edit-btn' do
       Edit 
   .main-chat__message-list
     .main-chat__message-list__message
