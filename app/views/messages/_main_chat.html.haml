@@ -2,32 +2,18 @@
   .main-chat__main-header
     .main-chat__main-header__detail
       .main-chat__main-header__detail__group-name
-        'current_group.name'
+        = @group.name
       .main-chat__main-header__detail__group-members
-        Member: teshita, riho 
-    = link_to edit_group_path(group.id), class: 'main-chat__main-header__edit-btn' do
+        = "Member: #{@group.show_members}"
+    = link_to edit_group_path(@group.id), class: 'main-chat__main-header__edit-btn' do
       Edit 
   .main-chat__message-list
-    .main-chat__message-list__message
-      .main-chat__message-list__message__post-info
-        .main-chat__message-list__message__post-info__post-name
-          小松 
-        .main-chat__message-list__message__post-info__post-time
-          2020/02/18(Tue) 21:03:10 
-      .main-chat__message-list__message__post-message
-        15期連続黒字！ 
-    .main-chat__message-list__message
-      .main-chat__message-list__message__post-info
-        .main-chat__message-list__message__post-info__post-name
-          小松 
-        .main-chat__message-list__message__post-info__post-time
-          2020/02/18(Tue) 21:59:21 
-      .main-chat__message-list__message__post-message
-        早く引っ越したい 
+    = render @messages
   .main-chat__message-form
-    .main-chat__message-form__input-box
-      %input{type: 'text_field', name: 'text', placeholder: 'type a message', class: 'main-chat__message-form__input-box__message'}
-      %label{name: 'image', class: 'main-chat__message-form__input-box__image'}
-        = icon('far', 'image', class: 'main-chat__message-form__input-box__image-icon fa-lg')
-        %input{type: 'file', name: 'image', class: 'main-chat__message-form__input-box__image-file'}
-    %input{type: 'submit', value: 'Send', class: 'main-chat__message-form__send-btn'}
+    = form_for [@group, @message] do |f|
+      .main-chat__message-form__input-box
+        = f.text_field :content, placeholder: 'type a message', class: 'main-chat__message-form__input-box__message'
+        = f.label :image, class: 'main-chat__message-form__input-box__image' do
+          = icon('far', 'image', class: 'main-chat__message-form__input-box__image-icon fa-lg')
+          = f.file_field :image, class: 'main-chat__message-form__input-box__image-file'
+      = f.submit 'Send', class: 'main-chat__message-form__send-btn'
