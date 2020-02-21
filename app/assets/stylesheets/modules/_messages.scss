@@ -121,7 +121,7 @@
     height: 90px;
     background-color: #d2d2d2;
     padding: $main-chat-padding;
-    display: flex;;
+    display: flex;
     align-items: center;
     &__input-box {
       height: $form-input-height;
@@ -155,4 +155,9 @@
       color: $main-chat-background-color;
     }
   }
+}
+
+#new_message {
+  display: flex;
+  width: 100%;
 }
