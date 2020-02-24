@@ -1,19 +1,19 @@
 .main-chat
-  .main-chat__main-header
-    .main-chat__main-header__detail
-      .main-chat__main-header__detail__group-name
+  .main-header
+    .detail
+      .group-name
         = @group.name
-      .main-chat__main-header__detail__group-members
+      .group-members
         = "Member: #{@group.show_members}"
-    = link_to edit_group_path(@group.id), class: 'main-chat__main-header__edit-btn' do
+    = link_to edit_group_path(@group.id), class: 'edit-btn' do
       Edit 
-  .main-chat__message-list
+  .message-list
     = render @messages
-  .main-chat__message-form
+  .message-form
     = form_for [@group, @message] do |f|
-      .main-chat__message-form__input-box
-        = f.text_field :content, placeholder: 'type a message', class: 'main-chat__message-form__input-box__message'
-        = f.label :image, class: 'main-chat__message-form__input-box__image' do
-          = icon('far', 'image', class: 'main-chat__message-form__input-box__image-icon fa-lg')
-          = f.file_field :image, class: 'main-chat__message-form__input-box__image-file'
-      = f.submit 'Send', class: 'main-chat__message-form__send-btn'
+      .input-box
+        = f.text_field :content, placeholder: 'type a message', class: 'message'
+        = f.label :image, class: 'image' do
+          = icon('far', 'image', class: 'image-icon fa-lg')
+          = f.file_field :image, class: 'image-file'
+      = f.submit 'Send', class: 'send-btn'
