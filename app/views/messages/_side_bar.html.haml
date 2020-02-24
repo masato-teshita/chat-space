@@ -1,21 +1,21 @@
 .side-bar
-  .side-bar__side-header
-    .side-bar__side-header__box
-      .side-bar__side-header__box__user-name
+  .side-header
+    .box
+      .user-name
         = current_user.name
-      %ul.side-bar__side-header__box__menu
+      %ul.menu
         %li
           = link_to new_group_path do
-            = icon('far', 'edit', class: "side-bar__side-header__box__menu__icon")
+            = icon('far', 'edit', class: "icon")
         %li
           = link_to edit_user_path(current_user.id) do
-            = icon('fas', 'cog', class: "side-bar__side-header__box__menu__icon")
-  .side-bar__groups-list
+            = icon('fas', 'cog', class: "icon")
+  .groups-list
     - current_user.groups.each do |group| 
-      .side-bar__groups-list__group
+      .group
         = link_to group_messages_path(group.id) do
-          .side-bar__groups-list__group__group-name
+          .group-name
             = group.name
-          .side-bar__groups-list__group__recent-message
+          .recent-message
             = group.show_last_message
 

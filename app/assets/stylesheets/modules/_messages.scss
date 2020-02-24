@@ -12,45 +12,45 @@
   background-color: #253141;
   color: $side-bar-font-color;
   font-weight: bold;
-  &__side-header {
+  .side-header {
     height: $header-height;
     padding: $side-bar-padding;
     display: flex;
     align-items: center;
-    &__box {
+    .box {
       height: 20px;
       width: 100%;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      &__menu {
+      .menu {
         display: flex;
         list-style: none;
         li {
         margin-left: 5px;
         }
-        &__icon {
+        .icon {
         color: $side-bar-font-color;
         text-decoration: none;
         }
       }
     }
   }
-  &__groups-list {
+  .groups-list {
     height: calc(100vh - 100px);
     background-color: #2f3e51;
     padding: $side-bar-padding;
-    &__group {
+    .group {
       padding: 20px 0 40px;
       a {
         text-decoration: none;
         color: white;
       }
-      &__group-name {
+      .group-name {
         margin-bottom: 5px;
         font-size: 15px;
       }
-      &__recent-message {
+      .recent-message {
         font-size: 11px;
       }
     }
@@ -92,9 +92,10 @@
     }
   }
   .message-list {
-    height: calc(100vh - 100px - 90px);
+    height: calc(100vh - 190px);
     background-color: #fafafa;
     padding: 35px 40px;
+    overflow: scroll;
     .message {
       padding-bottom: 46px;
       .post-info {
@@ -160,4 +161,9 @@
 #new_message {
   display: flex;
   width: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  -webkit-appearance: none;
 }
