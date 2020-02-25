@@ -45,4 +45,8 @@ $(function() {
       alert("ユーザー検索に失敗しました");
     })
   });
+
+  $('.chat-group-form__field--right').on('click', '.chat-group-user__btn', function(){
+    console.log("OK")
+  });
 });
