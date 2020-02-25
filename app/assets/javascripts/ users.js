@@ -1,5 +1,7 @@
 $(function() {
   var search_result = $('#user-search-result');
+  var group_users = $('#chat-group-users')
+
 
   function addUser(user) {
     var html = `
@@ -18,6 +20,18 @@ $(function() {
                 </div>
                `
     search_result.append(html)
+  }
+
+  function addGroupUser(userName, userId){
+
+    var html = `
+                <div class='chat-group-user'>
+                  <input name='group[user_ids][]' type='hidden' value='${userId}'>
+                  <p class='chat-group-user__name'>${userName}</p>
+                  <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+                </div>
+                `
+    group_users.append(html)
   }
 
   $('#user-search-field').on('keyup', function(){
@@ -46,7 +60,16 @@ $(function() {
     })
   });
 
-  $('.chat-group-form__field--right').on('click', '.chat-group-user__btn', function(){
-    console.log("OK")
+  $(document).on('click', '.chat-group-user__btn--add', function(){
+    $(this)
+      .parent()
+      .remove();
+    const userName = $(this).data('user-name');
+    const userId = $(this).data('user-id');
+    addGroupUser(userName, userId)
+  });
+
+  $(document).on('click', '.chat-group-user__btn--remove', function(){
+    $(this).parent().remove();
   });
 });
