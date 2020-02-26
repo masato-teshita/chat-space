@@ -32,11 +32,14 @@ $(function(){
       dataType: 'json'
     })
     .done(function(messages){
-      var insertHTML = ''
-      $.each(messages, function(i, message) {
-        insertHTML += buildHTML(message)
-      });
-      $('.message-list').append(insertHTML);
+      if (messages.length !== 0) {
+        var insertHTML = ''
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.message-list').append(insertHTML);
+        $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight});
+      }
     })
     .fail(function(){
       alert('error');
@@ -70,5 +73,5 @@ $(function(){
       alert("メッセージ送信に失敗しました");
     })
   });
-  // setInterval(reloadMessages, 7000);
+  setInterval(reloadMessages, 7000);
 });
