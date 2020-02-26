@@ -1,7 +1,8 @@
 $(function(){
+
   function buildHTML(message){
     if (message.image) {
-      var html = `<div class="message" data-message-id=${message.id}>
+      var html = `<div class="message" data-message-id="${message.id}">
                     <div class="post-info">
                       <div class="post-name">${message.user_name}</div>
                       <div class="post-time">${message.created_at}</div>
@@ -11,7 +12,7 @@ $(function(){
                   </div>`
       return html;
     } else {
-      var html = `<div class="message" data-message-id=${message.id}>
+      var html = `<div class="message" data-message-id="${message.id}">
                     <div class="post-info">
                       <div class="post-name">${message.user_name}</div>
                       <div class="post-time">${message.created_at}</div>
@@ -21,6 +22,26 @@ $(function(){
       return html;
     }
   }
+ 
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data('message-id');
+    $.ajax({
+      url: 'api/messages',
+      type: 'GET',
+      data: {id: last_message_id},
+      dataType: 'json'
+    })
+    .done(function(messages){
+      var insertHTML = ''
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message)
+      });
+      $('.message-list').append(insertHTML);
+    })
+    .fail(function(){
+      alert('error');
+    });
+  };
 
   $('#new_message').on('submit' ,function(e){
     e.preventDefault();
@@ -49,4 +70,5 @@ $(function(){
       alert("メッセージ送信に失敗しました");
     })
   });
+  // setInterval(reloadMessages, 7000);
 });

@@ -64,6 +64,7 @@ $(function() {
     $(this)
       .parent()
       .remove();
+      console.log($(this).data())
     const userName = $(this).data('user-name');
     const userId = $(this).data('user-id');
     addGroupUser(userName, userId)
