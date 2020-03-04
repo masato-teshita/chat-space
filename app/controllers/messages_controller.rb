@@ -14,8 +14,7 @@ class MessagesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.json
-        # format.json {render json: {id: nil}}
+        format.json {render json: {id: nil}}
       end
     end
   end
