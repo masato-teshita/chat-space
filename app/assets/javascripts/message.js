@@ -60,18 +60,14 @@ $(function(){
     })
     .done(function(data){
       $('.send-btn').prop('disabled', false);
-      if (data.id) {
         var html = buildHTML(data);
         $('.message-list').append(html);
         $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight});
         $('form')[0].reset();
-      } else {
-        alert("メッセージを入力してください");
-      }
     })
     .fail(function() {
       $('.send-btn').prop('disabled', false);
-      alert("メッセージ送信に失敗しました");
+      alert("メッセージを入力してください");
     })
   });
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
