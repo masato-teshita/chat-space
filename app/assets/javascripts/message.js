@@ -66,10 +66,11 @@ $(function(){
         $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight});
         $('form')[0].reset();
       } else {
-        alert("メッセージを入力してください")
+        alert("メッセージを入力してください");
       }
     })
     .fail(function() {
+      $('.send-btn').prop('disabled', false);
       alert("メッセージ送信に失敗しました");
     })
   });
