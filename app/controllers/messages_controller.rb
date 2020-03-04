@@ -13,9 +13,9 @@ class MessagesController < ApplicationController
         format.json
       end
     else
-      respond_to do |format|
-        format.json {render json: {id: nil}}
-      end
+      @messages = @group.messages.includes(:user)
+      flash.now[:alert] = 'メッセージを入力してください。'
+      render :index
     end
   end
 
