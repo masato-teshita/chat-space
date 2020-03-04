@@ -8,16 +8,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = @group.messages.new(message_params)
-    logger.debug @product.errors.inspect
+    logger.debug @message.errors.inspect
     if @message.save
       respond_to do |format|
         format.json
       end
     else
       respond_to do |format|
-        format.json {
-          render json: {id: nil}
-        }
+        format.json {render json: {id: nil}}
       end
     end
   end
